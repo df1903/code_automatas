@@ -1,0 +1,33 @@
+  # Reverso de un automata
+  automata = Automata()
+
+  # Alfabeto
+  automata.ingresarAlfabeto("0")
+  automata.ingresarAlfabeto("1")
+  
+  # Estados
+  automata.ingresarEstado("q0", True)
+  automata.ingresarEstado("q1", True)
+  automata.ingresarEstado("q2", True)
+  automata.ingresarEstado("q3", False)
+
+  # Transiciones
+  automata.ingresarTransicion("q0", "0", "q2")
+  automata.ingresarTransicion("q0", "1", "q1")
+  automata.ingresarTransicion("q1", "0", "q1")
+  automata.ingresarTransicion("q1", "1", "q1")
+  automata.ingresarTransicion("q2", "0", "q3")
+  automata.ingresarTransicion("q2", "1", "q1")
+  automata.ingresarTransicion("q3", "0", "q3")
+  automata.ingresarTransicion("q3", "1", "q3")
+
+  # quintupla
+  automata.mostrarQuintupla()
+
+  # Reverso
+  print("\nReverso del automata")
+  reverso = Automata().reversoAutomata(automata)
+  reverso.mostrarQuintupla()
+
+  cadena = "000111"
+  reverso.mostrarValidacion(cadena)

@@ -1,0 +1,25 @@
+  # Autómata que reciba números pares.(un numero binario es par si termina en 0)
+  A = Automata()
+
+  # Alfabeto
+  A.ingresarAlfabeto("0")
+  A.ingresarAlfabeto("1")
+
+  # Estados
+  A.ingresarEstado("q0", True)
+  A.ingresarEstado("q1", False)
+
+  # Transiciones
+  A.ingresarTransicion("q0", "0", "q0")
+  A.ingresarTransicion("q0", "1", "q1")
+  A.ingresarTransicion("q1", "0", "q0")
+  A.ingresarTransicion("q1", "1", "q1")
+
+  # Cadenas de prueba
+  cadena1 = "1010101010101010"
+  cadena2 = "1010101010101011"
+
+  # Prueba de cadenas
+  A.mostrarValidacion(cadena1)
+  A.mostrarValidacion(cadena2)
+

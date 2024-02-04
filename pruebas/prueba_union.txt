@@ -1,0 +1,85 @@
+from clases.automata import *
+
+def main():
+  print("------------------------------------AUTOMATA 1------------------------------------")
+  # Autómata 1
+  A = Automata()
+  
+  # Alfabeto
+  A.ingresarAlfabeto("x")
+  A.ingresarAlfabeto("y")
+  
+  # Estados
+  A.ingresarEstado("A", False)
+  A.ingresarEstado("B", True)
+  
+  # Transiciones
+  A.ingresarTransicion("A", "y", "A")
+  A.ingresarTransicion("A", "x", "B")
+  A.ingresarTransicion("B", "x", "B")
+  A.ingresarTransicion("B", "y", "B")
+  
+  # quintupla
+  A.mostrarQuintupla()
+  
+  print("------------------------------------------")
+  # Cadenas de prueba
+  cadena1 = "yyyyyyyyyyyyyyyyyy"
+  cadena2 = "xxxxxxxxxxxxxxyyyyy"
+  
+  # Prueba de cadenas
+  A.mostrarValidacion(cadena1)
+  A.mostrarValidacion(cadena2)
+  
+  
+  print("------------------------------------AUTOMATA 2------------------------------------")
+  # Autómata 2
+  B = Automata()
+  
+  # Alfabeto
+  B.ingresarAlfabeto("x")
+  B.ingresarAlfabeto("y")
+  
+  # Estados
+  B.ingresarEstado("C", False)
+  B.ingresarEstado("D", True)
+  
+  # Transiciones
+  B.ingresarTransicion("C", "x", "C")
+  B.ingresarTransicion("C", "y", "D")
+  B.ingresarTransicion("D", "y", "D")
+  B.ingresarTransicion("D", "x", "D")
+  
+  # quintupla
+  B.mostrarQuintupla()
+  
+  print("------------------------------------------")
+  # Cadenas de prueba
+  cadena1 = "xxxxxxxxxxxxxxxxxxx"
+  cadena2 = "yyyyyyyyyyyyyyxxxxx"
+  
+  # Prueba de cadenas
+  B.mostrarValidacion(cadena1)
+  B.mostrarValidacion(cadena2)
+  
+  
+  print("------------------------------------AUTOMATA R------------------------------------")
+  C = Automata().unionEntreAutomatas(A, B)
+  
+  # quintupla
+  C.mostrarQuintupla()
+  
+  print("------------------------------------------")
+  # Cadenas de prueba
+  cadena1 = "xxxxxxxxxxxxxxxxxxx"
+  cadena2 = "yyyyyyyyyyyyyyxxxxx"
+  cadena3 = "yyyyyyyyyyyyyyyyyy"
+  cadena4 = "xxxxxxxxxxxxxxyyyyy"
+  
+  # Prueba de cadenas
+  C.mostrarValidacion(cadena1)
+  C.mostrarValidacion(cadena2)
+  C.mostrarValidacion(cadena3)
+  C.mostrarValidacion(cadena4)
+
+main()
